@@ -4,20 +4,13 @@ import mongoose from "mongoose";
 
 export type UserModel = mongoose.Document & {
   email: string,
+  name: string,
   password: string,
   passwordResetToken: string,
   passwordResetExpires: Date,
 
   facebook: string,
   tokens: AuthToken[],
-
-  profile: {
-    name: string,
-    gender: string,
-    location: string,
-    website: string,
-    picture: string
-  },
 
   comparePassword: comparePasswordFunction,
   gravatar: (size: number) => string
@@ -35,19 +28,12 @@ const userSchema = new mongoose.Schema({
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
+  name: String,
 
   facebook: String,
   twitter: String,
   google: String,
   tokens: Array,
-
-  profile: {
-    name: String,
-    gender: String,
-    location: String,
-    website: String,
-    picture: String
-  }
 }, { timestamps: true });
 
 /**

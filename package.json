@@ -9,6 +9,7 @@
   "author": "jayoharedee",
   "license": "MIT",
   "scripts": {
+    "go": "npm run build && npm run start",
     "start": "npm run serve",
     "build": "npm run build-sass && npm run build-ts && npm run tslint && npm run copy-static-assets",
     "serve": "node dist/server.js",
