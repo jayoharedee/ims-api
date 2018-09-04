@@ -14,7 +14,7 @@ import expressValidator from "express-validator";
 import bluebird from "bluebird";
 
 // Load environment variables from .env file, where API keys and passwords are configured
-dotenv.config({ path: ".env.example" });
+dotenv.config({ path: ".env" });
 
 import { MONGODB_URI, SESSION_SECRET } from "./util/secrets";
 
@@ -60,7 +60,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+// app.use(flash());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 app.use((req, res, next) => {
