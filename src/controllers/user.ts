@@ -229,13 +229,13 @@ export let postUpdateProfile = (req: Request, res: Response, next: NextFunction)
         if (err.code === 11000) {
           // req.flash("errors", { msg: "The email address you have entered is already associated with an account." });
           return res.json({
-            account: "The email address you have entered is already associated with an account."
+            msg: "The email address you have entered is already associated with an account."
            });
           // return res.redirect("/account");
         }
         return next(err);
       }
-      return res.json({success: "Profile information has been updated." });
+      return res.json({ success: "Profile information has been updated." });
       // req.flash("success", { msg: "Profile information has been updated." });
       // res.redirect("/account");
     });
@@ -269,7 +269,7 @@ export let postUpdatePassword = (req: Request, res: Response, next: NextFunction
         res.json({ err });
         return next(err);
       }
-      return res.json({success: "Profile information has been updated." });
+      return res.json({ success: "Profile information has been updated." });
       // req.flash("success", { msg: "Password has been changed." });
       // res.redirect("/account");
     });
@@ -287,7 +287,7 @@ export let postDeleteAccount = (req: Request, res: Response, next: NextFunction)
       return next(err);
     }
     req.logout();
-    return res.json({success: "Profile information has been updated." });
+    return res.json({ msg: "Your account has been deleted." });
     // req.flash("info", { msg: "Your account has been deleted." });
     // res.redirect("/");
   });
